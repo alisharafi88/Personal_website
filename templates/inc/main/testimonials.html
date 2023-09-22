@@ -1,0 +1,76 @@
+{% load static %}
+{% load i18n %}
+
+<!-- TESTIMONIALS -->
+<div id="testimonials" class="iknow_tm_main_section">
+    <div class="iknow_tm_testimonials">
+        <div class="iknow_tm_main_title">
+            <span>{% trans 'Testimonials' %}</span>
+            <h3>{% trans 'What people say about me' %}</h3>
+        </div>
+            <div class="testimonials_list owl-carousel owl-theme">
+            {% for comment in comments %}
+                <div class="list_inner">
+                    <div class="in">
+                        <div class="text">
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                        <div class="details">
+                            <div class="left">
+                                {% if comment.user.profile %}
+                                    <div class="avatar">
+                                        <div class="main" data-img-url="{{ comment.user.profile.url }}"></div>
+                                    </div>
+                                {% endif %}
+                                <div class="info">
+                                    <h3>{{ comment.user.username }}</h3>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <img class="svg" src="{% static 'img/svg/left-quote.svg' %}" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="iknow_tm_contact">
+            <div class="iknow_tm_main_title">
+                <h3>{% trans 'Comment here: ' %}</h3>
+            </div>
+            <div class="wrapper">
+                <div class="right">
+                    <div class="fields">
+                        <form action="{% url 'comments:create_comment' %}" method="post" class="" id="contact_form"
+                              autocomplete="off">
+                            {% csrf_token %}
+                            <div class="empty_notice"><span>Please Fill Required Fields</span></div>
+                            <div class="message_area">
+                                    <textarea name="comment" id="message"
+                                              placeholder="{% trans 'Comment here' %}"></textarea>
+                            </div>
+                            <div class="iknow_tm_button">
+                                <input type="submit" id="send_message" value="{% trans 'Send' %}">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container">
+            <div class="inner">
+                <div class="right">
+                    <ul>
+                        <span>{% trans 'If you want to comment, You should: ' %}</span>
+                        <li><a href="{% url 'account:singup' %}">{% trans 'Singup' %}</a></li>
+                        <li><a href="{% url 'account:login' %}">{% trans 'Login' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+<!-- /TESTIMONIALS -->

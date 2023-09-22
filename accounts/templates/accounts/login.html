@@ -1,0 +1,47 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Log In' %}
+{% endblock %}
+
+{% block context %}
+
+    <div class="container">
+        <div class="iknow_tm_mainpart">
+            <div class="iknow_tm_contact">
+                <div class="portfolio_filter">
+                    <!-- Nothing -->
+                </div>
+                <div class="iknow_tm_main_title">
+                    <span>{% trans 'Log In' %}</span>
+                    <h3></h3>
+                </div>
+                <div class="wrapper">
+                    <div class="right">
+                        <div class="fields">
+                            <form action="" method="post" autocomplete="on">
+                                {% csrf_token %}
+                                <div class="empty_notice"><span>Please Fill Required Fields</span></div>
+                                <div class="input_list">
+                                    <ul>
+                                        <li><label>
+                                            <input name="username" type="text" placeholder="Your Name"/>
+                                        </label></li>
+                                        <li><label>
+                                            <input name="password" type="password" placeholder="Your Password"/>
+                                        </label></li>
+                                    </ul>
+                                </div>
+                                <div class="iknow_tm_button">
+                                    <input id="send_message" type="submit" value="{% trans 'Login' %}">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

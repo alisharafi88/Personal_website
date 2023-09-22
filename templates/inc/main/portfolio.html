@@ -1,0 +1,117 @@
+{% load static %}
+{% load i18n %}
+{% load jalali_tags %}
+{% load translate_numbers_tag %}
+
+<!-- PORTFOLIO -->
+<div id="portfolio" class="iknow_tm_main_section">
+    <div class="iknow_tm_portfolio">
+        <div class="iknow_tm_main_title">
+            <span>{% translate 'Resume' %}</span>
+            <h3>{% translate 'My works that I did for clients' %}</h3>
+        </div>
+        <div class="portfolio_filter">
+            <!-- Nothing -->
+        </div>
+        <div class="portfolio_list">
+            <ul class="gallery_zoom">
+                {% for portfolio in portfolios %}
+
+                    <li class="detail">
+                        <div class="list_inner">
+                            <div class="image">
+                                <img src="{% static 'img/thumbs/1-1.jpg' %}" alt=""/>
+                                <div class="main" data-img-url="{{ portfolio.cover.url }}"></div>
+                            </div>
+                            <div class="overlay"></div>
+                            <img class="svg" src="{% static 'img/svg/text.svg' %}" alt=""/>
+                            <div class="details">
+                                <span>{{ portfolio.category_i18n }}</span>
+                            </div>
+                            <a class="iknow_tm_full_link portfolio_popup" href="#"></a>
+
+                            <div class="hidden_content">
+                                <div class="popup_details">
+                                    <div class="main_details">
+                                        <div class="textbox">
+                                            {{ portfolio.description_i18n }}
+                                        </div>
+                                        <div class="detailbox">
+                                            <ul>
+                                                <li>
+                                                    <span class="first">{% trans 'Client' %}</span>
+                                                    <span>{{ portfolio.client_i18n }}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="first">{% trans 'Category' %}</span>
+                                                    <span>{{ portfolio.category_i18n }}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="first">{% trans 'Date' %}</span>
+                                                    {% if me.language == 'fa' %}
+                                                        <span>{{ portfolio.date|to_jalali:'%Y/%B/%d'|translate }}</span>
+                                                    {% else %}
+                                                        <span>{{ portfolio.date|translate }}</span>
+                                                    {% endif %}
+                                                </li>
+                                                <li>
+                                                    <span class="first">Share</span>
+                                                    <ul class="share">
+                                                        {% for link in portfolio.links.all %}
+                                                            {% if 'facebook' in link.link %}
+                                                                <li><a href="{{ link.link }}"><img class="svg"
+                                                                                              src="{% static 'img/svg/social/facebook.svg' %}"
+                                                                                              alt=""/></a></li>
+
+                                                            {% elif 'twitter' in link.link %}
+                                                                <li><a href="{{ link.link }}"><img class="svg"
+                                                                                              src="{% static 'img/svg/social/twitter.svg' %}"
+                                                                                              alt=""/></a></li>
+                                                            {% elif 'instagram' in link.link %}
+                                                                <li><a href="{{ link.link }}"><img class="svg"
+                                                                                              src="{% static 'img/svg/social/instagram.svg' %}"
+                                                                                              alt=""/></a>
+                                                                </li>
+                                                            {% elif 'github' in link.link %}
+                                                                <li><a href="{{ link.link }}"><img class="svg"
+                                                                                              src="{% static 'img/svg/social/github-mark.svg' %}"
+                                                                                              alt=""/></a>
+                                                                </li>
+                                                            {% else %}
+                                                                <li><a href="{{ link.link }}">{% trans 'Link' %}</a>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="additional_images">
+                                        <ul>
+                                            {% for img in portfolio.img.all %}
+                                                <li>
+                                                    <div class="list_inner">
+                                                        <div class="my_image">
+                                                            <img src="{% static 'img/thumbs/4-2.jpg' %}" alt=""/>
+                                                            <div class="main"
+                                                                 data-img-url="{{ img.img.url }}"></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /PORTFOLIO -->

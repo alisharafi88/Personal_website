@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-22 09:05+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/admin.py:17
+msgid "Personal info"
+msgstr ""
+
+#: accounts/admin.py:19
+msgid "Permissions"
+msgstr ""
+
+#: accounts/admin.py:31
+msgid "Important dates"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:6
+#: accounts/templates/accounts/login.html:18
+msgid "Log In"
+msgstr "ورود"
+
+#: accounts/templates/accounts/login.html:38
+msgid "Login"
+msgstr "ورود"
+
+#: accounts/templates/accounts/singup.html:6
+#: accounts/templates/accounts/singup.html:18
+msgid "Sing Up"
+msgstr "ثبت نام"
+
+#: accounts/templates/accounts/singup.html:30
+msgid "Your Name"
+msgstr "اسم شما"
+
+#: accounts/templates/accounts/singup.html:33
+msgid "Your Email"
+msgstr "ایمیل شما"
+
+#: accounts/templates/accounts/singup.html:37
+msgid "Your Password"
+msgstr "رمز شما"
+
+#: accounts/templates/accounts/singup.html:41
+msgid "Your Password Again"
+msgstr "رمز خود را تکرار کنید"
+
+#: accounts/templates/accounts/singup.html:44
+msgid "Your Photo"
+msgstr "عکس شما"
+
+#: accounts/templates/accounts/singup.html:49
+msgid "Singup"
+msgstr "ثبت نام"
+
+#: accounts/views.py:16 accounts/views.py:43
+#, python-brace-format
+msgid "{request.user.username}, You are authenticated!"
+msgstr "{request.user.username},شما از قبل ثبت نام کرده بودین."
+
+#: accounts/views.py:28
+msgid "Now Login"
+msgstr "ورود"
+
+#: accounts/views.py:30 accounts/views.py:62
+msgid "Try again!"
+msgstr "دوباره امتحان کن!"
+
+#: accounts/views.py:58
+msgid "You Logged in"
+msgstr "شما وارد شدید."
+
+#: accounts/views.py:69
+msgid "You Logged out!"
+msgstr "شما خارج شدید."

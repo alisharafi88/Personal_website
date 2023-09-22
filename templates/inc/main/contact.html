@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load static %}
+{% load translate_numbers_tag %}
+<!-- CONTACT -->
+<div id="contact" class="iknow_tm_main_section">
+    <div class="iknow_tm_contact">
+        <div class="iknow_tm_main_title">
+            <span>{% trans 'Contact Me' %}</span>
+            <h3>{% trans 'Contact me to get your work done' %}</h3>
+        </div>
+        <div class="wrapper">
+            <div class="left">
+                <ul>
+                    <li>
+                        <div class="list_inner">
+                            <span class="icon"><img class="svg" src="{% static 'img/svg/smartphone.svg' %}"
+                                                    alt=""/></span>
+                            <div class="short">
+                                <h3>{% trans 'Call Me' %}</h3>
+                                <span>{{ me.phone_number|translate }}</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list_inner">
+                            <span class="icon"><img class="svg" src="{% static 'img/svg/letter.svg' %}" alt=""/></span>
+                            <div class="short">
+                                <h3>{% translate 'Email Me' %}</h3>
+                                <span><a href="mailto:{{ me.email }}">{{ me.email }}</a></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="fields">
+                    <form action="{% url 'contact_me:message' %}" method="post" class="" id="contact_form" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="returnmessage"
+                             data-success="{% trans 'Your message has been received, We will contact you soon.' %}"></div>
+                        <div class="empty_notice"><span>Please Fill Required Fields</span></div>
+                        <div class="input_list">
+                            <ul>
+                                <li><input name="name" id="name" type="text" placeholder="{% trans 'Your Name' %}"/></li>
+                                <li><input name="email" id="email" type="text" placeholder="{% trans 'Your Email' %}"/></li>
+                                <li><input name="phone_number" id="phone" type="number" placeholder="{% trans 'Your Phone' %}"/></li>
+                                <li><input name="subject" id="subject" type="text" placeholder="{% trans 'Subject' %}"/></li>
+                            </ul>
+                        </div>
+                        <div class="message_area">
+                            <textarea name="message" id="message" placeholder="{% trans 'Your message here' %}"></textarea>
+                        </div>
+                        <div class="iknow_tm_button">
+                            <input type="submit" id="send_message" value="{% trans 'send' %}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /CONTACT -->

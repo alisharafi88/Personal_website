@@ -1,0 +1,118 @@
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load translate_numbers_tag %}
+
+<!-- RESUME -->
+<div id="resume" class="iknow_tm_main_section">
+    <div class="iknow_tm_resume">
+        <div class="iknow_tm_main_title">
+            <span>{% trans 'Resume' %}</span>
+            <h3>{% trans 'Combination of Skill &amp; Experience' %}</h3>
+        </div>
+        <div class="resume_inner">
+            <div class="left">
+                {% for category in course_category %}
+                    <div class="info_list">
+                        <div class="iknow_tm_resume_title">
+                            <h3>{{ category }}</h3>
+                            <span class="shape"></span>
+                        </div>
+                        {% for course in courses %}
+                        	{% if course.category.title_i18n == category %}
+                                <ul>
+                                    <li>
+                                        <div class="list_inner">
+                                            <div class="short">
+                                                <div class="job">
+                                                    <h3>{{ course.title_i18n }}</h3>
+                                                    {% if course.source%}
+                                                        <span>{{ course.source_i18n }}</span>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="year">
+                                                    {% if course.start_on == 0 %}
+                                                        <span> {% trans 'soon' %} </span>
+                                                    {% else %}
+                                                        {% if course.end_on == 0 %}
+                                                            <span>{{ course.start_on|translate }} - {% trans 'running' %} </span>
+                                                        {% else %}
+                                                            <span>{{ course.start_on|translate }} - {{ course.end_on|translate }} </span>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <p>{{ course.body_i18n|safe}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        	{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="right">
+                {#                <div class="skills_list">#}
+                {#                    <div class="iknow_tm_resume_title">#}
+                {#                        <h3>Personal Skills</h3>#}
+                {#                        <span class="shape"></span>#}
+                {#                    </div>#}
+                {#                    <div class="personal">#}
+                {#                        <div class="dodo_progress">#}
+                {#                            <div class="progress_inner" data-value="90">#}
+                {#                                <span><span class="label">Time Management</span><span class="number">90%</span></span>#}
+                {#                                <div class="background">#}
+                {#                                    <div class="bar">#}
+                {#                                        <div class="bar_in"></div>#}
+                {#                                    </div>#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {% for category in skill_category %}
+                    <div class="skills_list">
+                        <div class="iknow_tm_resume_title">
+                            <h3>{{ category }}</h3>
+                            <span class="shape"></span>
+                        </div>
+                        {% for skill in skills %}
+                            {% if skill.category.title_i18n == category %}
+                                <div class="personal">
+                                        <div class="dodo_progress">
+                                            <div class="progress_inner" data-value="{{ skill.percent }}">
+                                                <span><span class="label">{{ skill.title}}</span><span class="number">{{ skill.percent }}%</span></span>
+                                                <div class="background">
+                                                    <div class="bar">
+                                                        <div class="bar_in"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+{#                                <div class="software">#}
+{#                                    <div class="circular_progress_bar">#}
+{#                                        <ul>#}
+{#                                            <li>#}
+{#                                                <div class="list_inner">#}
+{#                                                    <div class="myCircle"#}
+{#                                                         data-value="{{ skill.percent|div:100 }}"></div>#}
+{#                                                    <div class="title"><h3>{{ skill.title }}</h3></div>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </div>#}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /RESUME -->

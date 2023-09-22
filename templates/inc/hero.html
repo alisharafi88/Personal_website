@@ -1,0 +1,66 @@
+{% load static %}
+{% load i18n %}
+<div class="hero_content">
+    <div class="container">
+        <div class="content_inner">
+            <div class="main_info">
+                <div class="left">
+                    <span class="subtitle">{% trans "I'm" %}</span>
+                    <h3 class="name">{{ me.name_i18n }} {{ me.last_name_i18n }}</h3>
+                    <p class="text">{{ me.summery_text_i18n }}</p>
+                </div>
+                <div class="right">
+                    <div class="image">
+                        <img src="{% static 'img/thumbs/47-60.jpg' %}" alt=""/>
+                        <div class="main" data-img-url="{{ me.image.url }}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_menu">
+                <ul>
+                    <li>
+                        <img class="svg" src="{% static 'img/svg/archive.svg' %}" alt=""/>
+                        <span>{% trans 'About Me' %}</span>
+                        <a class="iknow_tm_full_link" href="#about"></a>
+                    </li>
+                    {% if courses or skills %}
+                        <li>
+                            <img class="svg" src="{% static 'img/svg/contacs.svg' %}" alt=""/>
+                            <span>{% trans 'Resume' %}</span>
+                            <a class="iknow_tm_full_link" href="#resume"></a>
+                        </li>
+                    {% endif %}
+                    {% if portfolios %}
+                        <li>
+                            <img class="svg" src="{% static 'img/svg/briefcase.svg' %}" alt=""/>
+                            <span>{% trans 'Portfolio' %}</span>
+                            <a class="iknow_tm_full_link" href="#portfolio"></a>
+                        </li>
+                    {% endif %}
+{#                    <li>#}
+{#                        <img class="svg" src="{% static 'img/svg/gear.svg' %}" alt=""/>#}
+{#                        <span>{% trans 'Service' %}</span>#}
+{#                        <a class="iknow_tm_full_link" href="#service"></a>#}
+{#                    </li>#}
+                    <li>
+                        <img class="svg" src="{% static 'img/svg/message.svg' %}" alt=""/>
+                        <span>{% trans 'Testimonial' %}</span>
+                        <a class="iknow_tm_full_link" href="#testimonials"></a>
+                    </li>
+                    {% if blogs %}
+                        <li>
+                            <img class="svg" src="{% static 'img/svg/writing.svg' %}" alt=""/>
+                            <span>{% trans 'Blog' %}</span>
+                            <a class="iknow_tm_full_link" href="#news"></a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <img class="svg" src="{% static 'img/svg/letter.svg' %}" alt=""/>
+                        <span>{% trans 'Contact' %}</span>
+                        <a class="iknow_tm_full_link" href="#contact"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
