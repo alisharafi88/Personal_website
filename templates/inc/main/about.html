@@ -8,10 +8,10 @@
             <div class="left_inner">
                 <div class="image">
                     <img src="{% static 'img/thumbs/35-44.jpg' %}" alt=""/>
-                    {% if me.file %}
-                        <div class="main" data-img-url="{{ me.file.url }}"></div>
+                    {% if about_me.file %}
+                        <div class="main" data-img-url="{{ about_me.file.url }}"></div>
                     {% else %}
-                        <div class="main" data-img-url="{{ me.image.url }}"></div>
+                        <div class="main" data-img-url="{{ about_me.image.url }}"></div>
 
                     {% endif %}
                 </div>
@@ -19,23 +19,23 @@
                     <ul>
                         <li>
                             <h3>{% trans 'Name' %}</h3>
-                            <span>{{ me.name_i18n }} {{ me.last_name_i18n }}</span>
+                            <span>{{ about_me.name_i18n }} {{ about_me.last_name_i18n }}</span>
                         </li>
                         <li>
                             <h3>{% trans 'age' %}</h3>
-                            <span>{{ me.get_age_year|translate }}</span>
+                            <span>{{ about_me.get_age_year|translate }}</span>
                         </li>
                         <li>
                             <h3>{% trans 'Email' %}</h3>
-                            <span>{{ me.email }}</span>
+                            <span>{{ about_me.email }}</span>
                         </li>
                         <li>
                             <h3>{% trans 'Phone' %}</h3>
-                            <span>{{ me.phone_number|translate }}</span>
+                            <span>{{ about_me.phone_number|translate }}</span>
                         </li>
                         <li>
                             <h3>{% trans 'Nationality' %}</h3>
-                            <span>{{ me.nationality_i18n }}</span>
+                            <span>{{ about_me.nationality_i18n }}</span>
                         </li>
                     </ul>
                 </div>
@@ -44,13 +44,13 @@
         <div class="right">
             <div class="iknow_tm_main_title">
                 <span>{% trans 'About Me' %}</span>
-                <h3>{{ me.summery_text_i18n }}</h3>
+                <h3>{{ about_me.bio_i18n }}</h3>
             </div>
             <div class="bigger_text">
                 <p></p>
             </div>
             <div class="text">
-                <p>{{ me.text_i18n|safe }}</p>
+                <p>{{ about_me.description_i18n|safe }}</p>
             </div>
         </div>
     </div>

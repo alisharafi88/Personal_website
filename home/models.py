@@ -23,6 +23,7 @@ class AboutMe(models.Model):
 
     class Meta:
         indexes = [GinIndex(fields=["i18n"])]
+        verbose_name_plural = "About Me"
 
     def get_age_year(self):
         return datetime.now().year - self.age.year

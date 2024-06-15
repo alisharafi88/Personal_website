@@ -68,7 +68,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # Me
-                'home.context_processor.me',
                 'resumes.context_processor.resume',
                 'portfolio.context_processor.portfolio',
                 'comments.context_processor.comments',

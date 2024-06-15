@@ -6,13 +6,13 @@
             <div class="main_info">
                 <div class="left">
                     <span class="subtitle">{% trans "I'm" %}</span>
-                    <h3 class="name">{{ me.name_i18n }} {{ me.last_name_i18n }}</h3>
-                    <p class="text">{{ me.summery_text_i18n }}</p>
+                    <h3 class="name">{{ about_me.name_i18n }} {{ about_me.last_name_i18n }}</h3>
+                    <p class="text">{{ about_me.bio_i18n }}</p>
                 </div>
                 <div class="right">
                     <div class="image">
                         <img src="{% static 'img/thumbs/47-60.jpg' %}" alt=""/>
-                        <div class="main" data-img-url="{{ me.image.url }}"></div>
+                        <div class="main" data-img-url="{{ about_me.image.url }}"></div>
                     </div>
                 </div>
             </div>
