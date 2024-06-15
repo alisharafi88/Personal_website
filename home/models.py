@@ -8,19 +8,18 @@ from django.contrib.postgres.indexes import GinIndex
 
 
 class AboutMe(models.Model):
-
     name = models.CharField(max_length=10)
     last_name = models.CharField(max_length=10)
     age = models.DateField()
-    nationality_city = models.CharField(max_length=70, null=True, blank=True)
+    nationality = models.CharField(max_length=10)
     phone_number = PhoneNumberField()
     email = models.EmailField()
     image = models.ImageField(upload_to='covers/user_me')
 
-    summery_text = models.CharField(max_length=200)
-    text = RichTextField()
+    bio = models.CharField(max_length=200)
+    description = RichTextField()
 
-    i18n = TranslationField(fields=('name', 'last_name', 'nationality_city', 'summery_text', 'text'))
+    i18n = TranslationField(fields=('name', 'last_name', 'nationality', 'bio', 'description'))
 
     class Meta:
         indexes = [GinIndex(fields=["i18n"])]
