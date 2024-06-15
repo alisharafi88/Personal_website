@@ -11,5 +11,12 @@ class HomeView(View):
 
         course_category_queryset = CourseCategory.course_exist.all()
         skill_category_queryset = SkillCategory.skill_exist.all()
-        return render(request, '-base.html', {'about_me': about_me, 'course_category': course_category_queryset, 'skill_category': skill_category_queryset})
-
+        return render(
+            request,
+            '-base.html',
+            {
+                'about_me': about_me,
+                'course_category': course_category_queryset,
+                'skill_category': skill_category_queryset
+            }
+        )
