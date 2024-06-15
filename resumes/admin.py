@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Skill, CourseCategory, SkillsCategory
+from .models import Course, Skill, CourseCategory, SkillCategory
 
 
 @admin.register(CourseCategory)
@@ -8,7 +8,7 @@ class CategoryCategoryAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
 
-@admin.register(SkillsCategory)
+@admin.register(SkillCategory)
 class SkillCategoryAdmin(admin.ModelAdmin):
     list_display = ('title',)
 

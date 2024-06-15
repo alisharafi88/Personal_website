@@ -18,8 +18,7 @@
                             <h3>{{ category }}</h3>
                             <span class="shape"></span>
                         </div>
-                        {% for course in courses %}
-                        	{% if course.category.title_i18n == category %}
+                        {% for course in category.courses.all %}
                                 <ul>
                                     <li>
                                         <div class="list_inner">
@@ -48,7 +47,6 @@
                                         </div>
                                     </li>
                                 </ul>
-                        	{% endif %}
                         {% endfor %}
                     </div>
                 {% endfor %}
@@ -56,32 +54,13 @@
             </div>
 
             <div class="right">
-                {#                <div class="skills_list">#}
-                {#                    <div class="iknow_tm_resume_title">#}
-                {#                        <h3>Personal Skills</h3>#}
-                {#                        <span class="shape"></span>#}
-                {#                    </div>#}
-                {#                    <div class="personal">#}
-                {#                        <div class="dodo_progress">#}
-                {#                            <div class="progress_inner" data-value="90">#}
-                {#                                <span><span class="label">Time Management</span><span class="number">90%</span></span>#}
-                {#                                <div class="background">#}
-                {#                                    <div class="bar">#}
-                {#                                        <div class="bar_in"></div>#}
-                {#                                    </div>#}
-                {#                                </div>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                </div>#}
                 {% for category in skill_category %}
                     <div class="skills_list">
                         <div class="iknow_tm_resume_title">
                             <h3>{{ category }}</h3>
                             <span class="shape"></span>
                         </div>
-                        {% for skill in skills %}
-                            {% if skill.category.title_i18n == category %}
+                        {% for skill in category.skills.all %}
                                 <div class="personal">
                                         <div class="dodo_progress">
                                             <div class="progress_inner" data-value="{{ skill.percent }}">
@@ -94,20 +73,6 @@
                                             </div>
                                         </div>
                                     </div>
-{#                                <div class="software">#}
-{#                                    <div class="circular_progress_bar">#}
-{#                                        <ul>#}
-{#                                            <li>#}
-{#                                                <div class="list_inner">#}
-{#                                                    <div class="myCircle"#}
-{#                                                         data-value="{{ skill.percent|div:100 }}"></div>#}
-{#                                                    <div class="title"><h3>{{ skill.title }}</h3></div>#}
-{#                                                </div>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-                            {% endif %}
                         {% endfor %}
                     </div>
                 {% endfor %}

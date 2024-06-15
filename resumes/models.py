@@ -9,6 +9,12 @@ from ckeditor.fields import RichTextField
 from home.models import AboutMe
 
 
+class CourseRelatedExistManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related('courses') \
+            .filter(courses__isnull=False)
+
+
 class CourseCategory(models.Model):
     title = models.CharField(_('Title'), max_length=20)
     body = RichTextField(_('Text'), blank=True, null=True)
@@ -17,19 +23,26 @@ class CourseCategory(models.Model):
     updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 
     objects = MultilingualManager()
+    course_exist = CourseRelatedExistManager()
 
     i18n = TranslationField(fields=('title', 'body'))
 
     class Meta:
         indexes = [GinIndex(fields=["i18n"])]
-
-
+        verbose_name = _('Course Category')
+        verbose_name_plural = _('Course Categories')
 
     def __str__(self):
         return self.title
 
 
-class SkillsCategory(models.Model):
+class SkillRelatedExistManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related('skills') \
+            .filter(skills__isnull=False)
+
+
+class SkillCategory(models.Model):
     title = models.CharField(_('Title'), max_length=20)
     body = RichTextField(_('Text'), blank=True, null=True)
 
@@ -37,12 +50,14 @@ class SkillsCategory(models.Model):
     updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 
     objects = MultilingualManager()
+    skill_exist = SkillRelatedExistManager()
 
     i18n = TranslationField(fields=('title', 'body'))
 
     class Meta:
         indexes = [GinIndex(fields=["i18n"])]
-
+        verbose_name = _('Skill Category')
+        verbose_name_plural = _('Skill Categories')
 
     def __str__(self):
         return self.title
@@ -68,7 +83,8 @@ class Course(models.Model):
             break
 
     user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='courses', verbose_name=_('User'))
-    category = models.ForeignKey(CourseCategory, related_name='courses', verbose_name=_('Category'), on_delete=models.CASCADE)
+    category = models.ForeignKey(CourseCategory, related_name='courses', verbose_name=_('Category'),
+                                 on_delete=models.CASCADE)
 
     title = models.CharField(_('Title'), max_length=20)
     source = models.CharField(_('Source'), blank=True, null=True, max_length=30)
@@ -94,7 +110,8 @@ class Skill(models.Model):
         PERCENT_CHOICE += ((i, i),)
 
     user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='skills', verbose_name=_('User'))
-    category = models.ForeignKey(SkillsCategory, related_name='skills', verbose_name=_('Category'), on_delete=models.CASCADE)
+    category = models.ForeignKey(SkillCategory, related_name='skills', verbose_name=_('Category'),
+                                 on_delete=models.CASCADE)
 
     title = models.CharField(_('Title'), max_length=20)
     percent = models.IntegerField(choices=PERCENT_CHOICE)
