@@ -7,7 +7,7 @@ from modeltrans.fields import TranslationField
 from django.contrib.postgres.indexes import GinIndex
 
 
-class Me(models.Model):
+class AboutMe(models.Model):
 
     name = models.CharField(max_length=10)
     last_name = models.CharField(max_length=10)
@@ -33,7 +33,7 @@ class Me(models.Model):
 
 
 class File(models.Model):
-    user = models.OneToOneField(Me, on_delete=models.CASCADE, related_name='file')
+    user = models.OneToOneField(AboutMe, on_delete=models.CASCADE, related_name='file')
     image_name = models.CharField(max_length=5)
     File = models.FileField(upload_to='covers/user_me')
 

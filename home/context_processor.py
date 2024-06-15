@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 
-from .models import Me as mee
+from .models import AboutMe as mee
 
 
 def me(request):

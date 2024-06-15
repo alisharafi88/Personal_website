@@ -6,7 +6,7 @@ from modeltrans.fields import TranslationField
 from modeltrans.manager import MultilingualManager
 from ckeditor.fields import RichTextField
 
-from home.models import Me
+from home.models import AboutMe
 
 
 class CourseCategory(models.Model):
@@ -67,7 +67,7 @@ class Course(models.Model):
                 END_DATE_CHOICE.append((ii, ii))
             break
 
-    user = models.ForeignKey(Me, on_delete=models.CASCADE, related_name='courses', verbose_name=_('User'))
+    user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='courses', verbose_name=_('User'))
     category = models.ForeignKey(CourseCategory, related_name='courses', verbose_name=_('Category'), on_delete=models.CASCADE)
 
     title = models.CharField(_('Title'), max_length=20)
@@ -93,7 +93,7 @@ class Skill(models.Model):
     for i in range(101):
         PERCENT_CHOICE += ((i, i),)
 
-    user = models.ForeignKey(Me, on_delete=models.CASCADE, related_name='skills', verbose_name=_('User'))
+    user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='skills', verbose_name=_('User'))
     category = models.ForeignKey(SkillsCategory, related_name='skills', verbose_name=_('Category'), on_delete=models.CASCADE)
 
     title = models.CharField(_('Title'), max_length=20)

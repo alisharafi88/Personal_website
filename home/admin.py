@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Me, File
+from .models import AboutMe, File
 
 
 class FileInline(admin.TabularInline):
@@ -9,7 +9,7 @@ class FileInline(admin.TabularInline):
     extra = 1
 
 
-@admin.register(Me)
+@admin.register(AboutMe)
 class MeAdmin(admin.ModelAdmin):
     list_display = ('name', 'last_name')
     inlines = (FileInline, )
