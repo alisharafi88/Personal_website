@@ -31,10 +31,3 @@ class AboutMe(models.Model):
         return f'{self.name} {self.last_name}'
 
 
-class File(models.Model):
-    user = models.OneToOneField(AboutMe, on_delete=models.CASCADE, related_name='file')
-    image_name = models.CharField(max_length=5)
-    File = models.FileField(upload_to='covers/user_me')
-
-    def __str__(self):
-        return f'{self.user.name} {self.user.last_name}`s file'
