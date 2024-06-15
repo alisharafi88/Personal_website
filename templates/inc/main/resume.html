@@ -19,34 +19,34 @@
                             <span class="shape"></span>
                         </div>
                         {% for course in category.courses.all %}
-                                <ul>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="short">
-                                                <div class="job">
-                                                    <h3>{{ course.title_i18n }}</h3>
-                                                    {% if course.source%}
-                                                        <span>{{ course.source_i18n }}</span>
-                                                    {% endif %}
-                                                </div>
-                                                <div class="year">
-                                                    {% if course.start_on == 0 %}
-                                                        <span> {% trans 'soon' %} </span>
-                                                    {% else %}
-                                                        {% if course.end_on == 0 %}
-                                                            <span>{{ course.start_on|translate }} - {% trans 'running' %} </span>
-                                                        {% else %}
-                                                            <span>{{ course.start_on|translate }} - {{ course.end_on|translate }} </span>
-                                                        {% endif %}
-                                                    {% endif %}
-                                                </div>
+                            <ul>
+                                <li>
+                                    <div class="list_inner">
+                                        <div class="short">
+                                            <div class="job">
+                                                <h3>{{ course.title_i18n }}</h3>
+                                                {% if course.source %}
+                                                    <span>{{ course.source_i18n }}</span>
+                                                {% endif %}
                                             </div>
-                                            <div class="text">
-                                                <p>{{ course.body_i18n|safe}}</p>
+                                            <div class="year">
+                                                {% if course.start_on == 0 %}
+                                                    <span> {% trans 'soon' %} </span>
+                                                {% else %}
+                                                    {% if course.end_on == 0 %}
+                                                        <span>{{ course.start_on|translate }} - {% trans 'running' %} </span>
+                                                    {% else %}
+                                                        <span>{{ course.start_on|translate }} - {{ course.end_on|translate }} </span>
+                                                    {% endif %}
+                                                {% endif %}
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
+                                        <div class="text">
+                                            <p>{{ course.body_i18n|safe }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         {% endfor %}
                     </div>
                 {% endfor %}
@@ -61,18 +61,19 @@
                             <span class="shape"></span>
                         </div>
                         {% for skill in category.skills.all %}
-                                <div class="personal">
-                                        <div class="dodo_progress">
-                                            <div class="progress_inner" data-value="{{ skill.percent }}">
-                                                <span><span class="label">{{ skill.title}}</span><span class="number">{{ skill.percent }}%</span></span>
-                                                <div class="background">
-                                                    <div class="bar">
-                                                        <div class="bar_in"></div>
-                                                    </div>
-                                                </div>
+                            <div class="personal">
+                                <div class="dodo_progress">
+                                    <div class="progress_inner" data-value="{{ skill.percent }}">
+                                        <span><span class="label">{{ skill.title }}</span><span
+                                                class="number">{{ skill.percent }}%</span></span>
+                                        <div class="background">
+                                            <div class="bar">
+                                                <div class="bar_in"></div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
                         {% endfor %}
                     </div>
                 {% endfor %}
