@@ -5,6 +5,7 @@ from .models import AboutMe
 from resumes.models import CourseCategory, SkillCategory
 from portfolio.models import Portfolio
 from testimonials.models import Comment
+from blogs.models import Blog
 
 
 class HomeView(View):
@@ -17,6 +18,8 @@ class HomeView(View):
         portfolio_queryset = Portfolio.objects.all()
 
         comment_queryset = Comment.objects.filter(is_active=True)
+
+        blog_queryset = Blog.objects.filter(is_active=True)
         return render(
             request,
             '-base.html',
@@ -26,5 +29,6 @@ class HomeView(View):
                 'skill_categories': skill_category_queryset,
                 'portfolios': portfolio_queryset,
                 'comments': comment_queryset,
+                'blogs': blog_queryset,
             }
         )
