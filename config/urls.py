@@ -15,3 +15,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'Your Admin Portal'
+admin.site.site_title = 'Personal Site administration'
+admin.site.index_title = admin.site.site_title
