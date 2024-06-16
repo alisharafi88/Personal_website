@@ -11,7 +11,7 @@ class Portfolio(models.Model):
     date = models.DateField(blank=True, null=True)
 
     description = RichTextField(blank=True, null=True)
-    cover = models.ImageField(upload_to='portfolio/%Y/%m')
+    cover = models.ImageField(upload_to='portfolio')
 
     i18n = TranslationField(fields=('category', 'description'))
 

@@ -82,7 +82,6 @@ class Course(models.Model):
                 END_DATE_CHOICE.append((ii, ii))
             break
 
-    user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='courses', verbose_name=_('User'))
     category = models.ForeignKey(CourseCategory, related_name='courses', verbose_name=_('Category'),
                                  on_delete=models.CASCADE)
 
@@ -109,7 +108,6 @@ class Skill(models.Model):
     for i in range(101):
         PERCENT_CHOICE += ((i, i),)
 
-    user = models.ForeignKey(AboutMe, on_delete=models.CASCADE, related_name='skills', verbose_name=_('User'))
     category = models.ForeignKey(SkillCategory, related_name='skills', verbose_name=_('Category'),
                                  on_delete=models.CASCADE)
 

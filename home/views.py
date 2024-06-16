@@ -15,7 +15,7 @@ class HomeView(View):
         course_category_queryset = CourseCategory.course_exist.all()
         skill_category_queryset = SkillCategory.skill_exist.all()
 
-        portfolio_queryset = Portfolio.objects.all()
+        portfolio_queryset = Portfolio.objects.prefetch_related('img', 'links').all()
 
         comment_queryset = Comment.objects.filter(is_active=True)
 
