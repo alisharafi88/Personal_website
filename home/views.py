@@ -4,6 +4,7 @@ from django.views import View
 from .models import AboutMe
 from resumes.models import CourseCategory, SkillCategory
 from portfolio.models import Portfolio
+from testimonials.models import Comment
 
 
 class HomeView(View):
@@ -14,13 +15,16 @@ class HomeView(View):
         skill_category_queryset = SkillCategory.skill_exist.all()
 
         portfolio_queryset = Portfolio.objects.all()
+
+        comment_queryset = Comment.objects.filter(is_active=True)
         return render(
             request,
             '-base.html',
             {
                 'about_me': about_me,
-                'course_category': course_category_queryset,
-                'skill_category': skill_category_queryset,
+                'course_categories': course_category_queryset,
+                'skill_categories': skill_category_queryset,
                 'portfolios': portfolio_queryset,
+                'comments': comment_queryset,
             }
         )

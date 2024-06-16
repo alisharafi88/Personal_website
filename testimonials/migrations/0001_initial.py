@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('comment', models.CharField(max_length=300)),
                 ('is_active', models.BooleanField(default=True)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='comments', to=settings.AUTH_USER_MODEL, verbose_name='User')),
+                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='testimonials', to=settings.AUTH_USER_MODEL, verbose_name='User')),
             ],
         ),
     ]

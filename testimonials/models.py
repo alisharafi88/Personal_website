@@ -9,7 +9,7 @@ class Comment(models.Model):
         CustomUser,
         on_delete=models.SET_NULL,
         null=True,
-        related_name='comments',
+        related_name='testimonials',
         verbose_name=_('User'),
     )
     comment = models.CharField(max_length=300)

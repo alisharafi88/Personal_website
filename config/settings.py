@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'resumes.apps.ResumesConfig',
     'portfolio.apps.PortfolioConfig',
     'contact_me.apps.ContactMeConfig',
-    'comments.apps.CommentsConfig',
+    'testimonials.apps.CommentsConfig',
     'blogs.apps.BlogsConfig',
     'translate.apps.TranslateNumbersConfig',
 
@@ -68,7 +68,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # Me
-                'comments.context_processor.comments',
                 'blogs.context_processor.blogs',
             ],
         },

@@ -164,7 +164,7 @@ msgid "running"
 msgstr "در حال اجرا"
 
 #: templates/inc/main/testimonials.html:8
-msgid "Testimonials"
+msgid "testimonials"
 msgstr "نظرات"
 
 #: templates/inc/main/testimonials.html:9

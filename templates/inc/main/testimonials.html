@@ -5,7 +5,7 @@
 <div id="testimonials" class="iknow_tm_main_section">
     <div class="iknow_tm_testimonials">
         <div class="iknow_tm_main_title">
-            <span>{% trans 'Testimonials' %}</span>
+            <span>{% trans 'testimonials' %}</span>
             <h3>{% trans 'What people say about me' %}</h3>
         </div>
             <div class="testimonials_list owl-carousel owl-theme">
@@ -43,7 +43,7 @@
             <div class="wrapper">
                 <div class="right">
                     <div class="fields">
-                        <form action="{% url 'comments:create_comment' %}" method="post" class="" id="contact_form"
+                        <form action="{% url 'testimonials:create_comment' %}" method="post" class="" id="contact_form"
                               autocomplete="off">
                             {% csrf_token %}
                             <div class="empty_notice"><span>Please Fill Required Fields</span></div>
