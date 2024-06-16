@@ -3,6 +3,7 @@ from django.views import View
 
 from .models import AboutMe
 from resumes.models import CourseCategory, SkillCategory
+from portfolio.models import Portfolio
 
 
 class HomeView(View):
@@ -11,12 +12,15 @@ class HomeView(View):
 
         course_category_queryset = CourseCategory.course_exist.all()
         skill_category_queryset = SkillCategory.skill_exist.all()
+
+        portfolio_queryset = Portfolio.objects.all()
         return render(
             request,
             '-base.html',
             {
                 'about_me': about_me,
                 'course_category': course_category_queryset,
-                'skill_category': skill_category_queryset
+                'skill_category': skill_category_queryset,
+                'portfolios': portfolio_queryset,
             }
         )
