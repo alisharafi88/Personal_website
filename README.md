@@ -1,4 +1,4 @@
 # AliSharafi
 
-It's  Personal website(abou tme, resume, portfolio and ...)
+It's a Personal website(abou tme, resume, portfolio and ...)
 
