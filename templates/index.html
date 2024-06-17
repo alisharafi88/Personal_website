@@ -1,0 +1,89 @@
+{% extends '-base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block context %}
+
+    <!-- WRAPPER ALL -->
+    <div class="iknow_tm_all_wrap" data-magic-cursor="show">
+
+    <!-- MODALBOX -->
+    <div class="iknow_tm_modalbox">
+        <div class="box_inner">
+            <div class="close">
+                <a href="#"><img class="svg" src="{% static 'img/svg/cancel.svg' %}" alt=""/></a>
+            </div>
+            <div class="description_wrap"></div>
+        </div>
+    </div>
+    <!-- /MODALBOX -->
+
+    <!-- TOPBAR -->
+    <div class="iknow_tm_topbar">
+        <div class="container">
+            <div class="topbar_inner">
+                <div class="logo">
+                </div>
+                <div class="right">
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                        selected{% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="{% trans 'Go' %}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /TOPBAR -->
+
+    <!-- HERO -->
+    <div class="iknow_tm_hero">
+        <div class="background_shape"></div>
+        {% include 'inc/hero.html' %}
+        <!-- Hero Shapes -->
+        <div class="simple_shapes">
+            <span class="one anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="two anim_moveLeft"><img class="svg" src="{% static 'img/svg/shapes/dot.svg' %}" alt=""/></span>
+            <span class="three anim_moveTop"><img class="svg" src="{% static 'img/svg/shapes/dot-2.svg' %}"
+                                                  alt=""/></span>
+            <span class="four anim_circle"><img class="svg" src="{% static 'img/svg/shapes/1.svg' %}" alt=""/></span>
+            <span class="five anim_circle"><img class="svg" src="{% static 'img/svg/shapes/8.svg' %}" alt=""/></span>
+            <span class="six anim_circle"><img class="svg" src="{% static 'img/svg/shapes/3.svg' %}" alt=""/></span>
+            <span class="seven anim_right"><img class="svg" src="{% static 'img/svg/shapes/4.svg' %}" alt=""/></span>
+            <span class="eight anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="nine anim_circle"><img class="svg" src="{% static 'img/svg/shapes/3.svg' %}" alt=""/></span>
+            <span class="ten anim_moveLeft"><img class="svg" src="{% static 'img/svg/shapes/4.svg' %}" alt=""/></span>
+            <span class="eleven anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="twelve anim_extra"><img class="svg" src="{% static 'img/svg/shapes/2.svg' %}" alt=""/></span>
+            <span class="thirteen anim_circle"><img class="svg" src="{% static 'img/svg/shapes/5.svg' %}"
+                                                    alt=""/></span>
+            <span class="fourteen anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="fifteen anim_circle"><img class="svg" src="{% static 'img/svg/shapes/3.svg' %}" alt=""/></span>
+            <span class="sixteen anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="seventeen anim_circle"><img class="svg" src="{% static 'img/svg/shapes/5.svg' %}"
+                                                     alt=""/></span>
+            <span class="eighteen anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="nineteen anim_scale"><img class="svg" src="{% static 'img/svg/shapes/9.svg' %}" alt=""/></span>
+            <span class="twenty anim_circle"><img class="svg" src="{% static 'img/svg/shapes/1.svg' %}" alt=""/></span>
+        </div>
+        <!-- /Hero Shapes -->
+
+    </div>
+    <!-- /HERO -->
+
+    <!-- MAINPART -->
+    {% include 'inc/mainpart.html' %}
+    <!-- /MAINPART -->
+    </div>
+{% endblock %}

@@ -22,7 +22,7 @@ class HomeView(View):
         blog_queryset = Blog.objects.filter(is_active=True)
         return render(
             request,
-            '-base.html',
+            'index.html',
             {
                 'about_me': about_me,
                 'course_categories': course_category_queryset,

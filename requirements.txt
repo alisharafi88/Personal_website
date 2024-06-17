@@ -3,10 +3,11 @@ backports.zoneinfo==0.2.1
 beautifulsoup4==4.12.2
 certifi==2023.7.22
 charset-normalizer==3.2.0
-Django==4.2.4
+Django==4.2.13
 django-bootstrap-v5==1.0.11
 django-bootstrap4==23.2
 django-ckeditor==6.7.0
+django-debug-toolbar==4.4.2
 django-environ==0.11.2
 django-jalali-date==1.0.2
 django-js-asset==2.1.0
