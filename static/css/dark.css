@@ -35,7 +35,7 @@ body.dark ::placeholder { /* Most modern browsers support this now. */
 body.dark{
   scrollbar-color: #494b50 #494b50;
 }
-body.dark:-webkit-scrollbar-track {
+body.dark::-webkit-scrollbar-track {
   background: #494b50;
 }
 body.dark::-webkit-scrollbar-thumb {
@@ -45,8 +45,8 @@ body.dark::-webkit-scrollbar-thumb {
 body.dark .iknow_tm_modalbox .description_wrap{
   scrollbar-color: #5c5d64 #5c5d64;
 }
-body.dark .iknow_tm_modalbox .description_wrap:-webkit-scrollbar-track,
-body.dark .iknow_tm_fixed_content .mainbar:-webkit-scrollbar-track{
+body.dark .iknow_tm_modalbox .description_wrap::-webkit-scrollbar-track,
+body.dark .iknow_tm_fixed_content .mainbar::-webkit-scrollbar-track {
   background: #5c5d64;
 }
 body.dark .iknow_tm_modalbox .description_wrap::-webkit-scrollbar-thumb,
